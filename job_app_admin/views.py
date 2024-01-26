@@ -19,7 +19,8 @@ def index(request):
                                 occupation=occupation)
 
             email_message_body = f'Application form submitted successfully!'
-            email_message = EmailMessage('Form submission conformation', email_message_body, to=[email]) #applicant email
+            email_message = EmailMessage('Form submission conformation', email_message_body,
+                                         to=[email])  # applicant email
             email_message.send()
 
             messages.success(request, 'Form submitted successfully!')
@@ -27,3 +28,7 @@ def index(request):
         form = ApplicationForm()  # Create a new form instance if the request method is not POST
     return render(request, "index.html", {'form': form})
     # return render(request, "index.html", )
+
+
+def about(request):
+    return render(request, "about.html")
